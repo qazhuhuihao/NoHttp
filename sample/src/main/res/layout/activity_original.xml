@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/ScrollViewStyle_Padding20" >
+<!--
+    Copyright 2017 Yan Zhenjie
 
-    <LinearLayout
-        style="@style/LayoutStyle_WidthMatch"
-        android:orientation="vertical" >
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-        <Button
-            android:id="@+id/btn_start"
-            style="@style/ButtonStyle_WidthMatch"
-            android:text="@string/reqeust_start" />
+       http://www.apache.org/licenses/LICENSE-2.0
 
-        <TextView
-            android:id="@+id/tv_status"
-            style="@style/TextViewStyle_WidthMatch"
-            android:layout_margin="@dimen/dp_10" />
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchParent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_5">
 
-        <TextView
-            android:id="@+id/tv_head"
-            style="@style/TextViewStyle_WidthMatch"
-            android:layout_margin="@dimen/dp_10" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_start"
+        style="@style/ButtonWrapContent.WidthMatch"
+        android:text="@string/request_start"/>
 
-</ScrollView>
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/WrapContent.WidthMatchParent"/>
+
+    <TextView
+        android:id="@+id/tv_head"
+        style="@style/WrapContent.WidthMatchParent"/>
+</LinearLayout>

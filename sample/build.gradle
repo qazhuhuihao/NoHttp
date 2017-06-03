@@ -1,26 +1,45 @@
-apply plugin: 'com.android.application'
+apply plugin: rootProject.ext.plugin.application
+apply plugin: rootProject.ext.plugin.retrolambda
+apply plugin: rootProject.ext.plugin.butterknife
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.sample.nohttp"
-        minSdkVersion 14
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-        }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
-    compile project(':nohttp')
-    compile files('libs/fastjson.jar')
+    compile rootProject.ext.dependencies.nohttp
+    compile rootProject.ext.dependencies.okhttp
+
+    // support.
+    compile rootProject.ext.dependencies.appcompat
+    compile rootProject.ext.dependencies.design
+    compile rootProject.ext.dependencies.recyclerview
+    compile rootProject.ext.dependencies.cardview
+
+    // json parser.
+    compile rootProject.ext.dependencies.fastjson
+
+    // circle image.
+    compile rootProject.ext.dependencies.circleimageview
+
+    // permission manager.
+    compile rootProject.ext.dependencies.permisson
+
+    // view bind
+    apt rootProject.ext.dependencies.butterknifeapt
+    compile rootProject.ext.dependencies.butterknife
 }
